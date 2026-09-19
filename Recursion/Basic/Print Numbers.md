@@ -1,30 +1,24 @@
-Print Numbers Using Recursion in Java
+# 🔹 Recursion — Print Numbers from 1 to 9
 
-A simple Java program that demonstrates the fundamentals of recursion by printing numbers from 1 to 9.
+## 📝 What This Code Does
 
-📌 Overview
+This program uses **recursion** to print numbers from `1` to `9`.
 
-Recursion is a technique where a method calls itself to solve a problem step by step.
+The method `recursion()` keeps calling itself after increasing `count` by `1`. When `count` becomes `10`, the base condition stops the recursion.
 
-In this program, the recursion() method prints the current number, increments it, and calls itself again until it reaches the stopping condition.
+## 💻 Complete Code
 
-💻 Code
+```java
+import java.util.*;
+
 public class Main {
-
     static void recursion(int count) {
-
-        // Base condition
         if (count == 10) {
             return;
         }
 
-        // Print the current number
-        System.out.println(count);
-
-        // Increment the count
+        System.out.print(count + "\n");
         count++;
-
-        // Recursive call
         recursion(count);
     }
 
@@ -32,57 +26,140 @@ public class Main {
         recursion(1);
     }
 }
+```
 
-🧠 Main Logic
+---
 
-The program follows these steps:
+## 💡 Core Logic
 
-recursion(1) starts the recursive process with count = 1.
+> **Print the current number → increase it → call the function again → stop when `count` reaches 10.**
 
-The method checks whether count == 10.
+The two most important parts are:
 
-If the condition is false, the current value is printed.
+```java
+if (count == 10) {
+    return;
+}
+```
 
-count is incremented by 1.
+This is the **base condition** that stops the recursion.
 
-The method calls itself with the updated value.
+```java
+count++;
+recursion(count);
+```
 
-This process continues until count becomes 10.
+This increases the value and makes the next recursive call.
 
-When count == 10, the base condition is satisfied and the method returns.
+---
 
-🔄 Execution Flow
+## 🔄 Code Flow
+
+### Step 1: `main()` starts
+
+```java
+recursion(1);
+```
+
+The function starts with:
+
+`count = 1`
+
+### Step 2: Check the base condition
+
+```java
+if (count == 10)
+```
+
+For `count = 1`:
+
+`1 == 10` → `false`
+
+So execution continues.
+
+### Step 3: Print the value
+
+```java
+System.out.print(count + "\n");
+```
+
+Prints:
+
+`1`
+
+### Step 4: Increment
+
+```java
+count++;
+```
+
+Now:
+
+`count = 2`
+
+### Step 5: Recursive call
+
+```java
+recursion(count);
+```
+
+Calls:
+
+`recursion(2)`
+
+The same process repeats until `count` becomes `10`.
+
+---
+
+## 🧠 Important Variable
+
+| Variable | Purpose                                                                   |
+| -------- | ------------------------------------------------------------------------- |
+| `count`  | Stores the current number being printed and controls when recursion stops |
+
+---
+
+## ▶️ Example Flow
+
+Starting with:
+
+```text
 recursion(1)
-     ↓
+```
+
+The execution becomes:
+
+```text
+recursion(1)
+    ↓
 print 1
-     ↓
+    ↓
+count = 2
+    ↓
 recursion(2)
-     ↓
+    ↓
 print 2
-     ↓
-   ...
-     ↓
+    ↓
+count = 3
+    ↓
+recursion(3)
+    ↓
+...
+    ↓
 recursion(9)
-     ↓
+    ↓
 print 9
-     ↓
+    ↓
+count = 10
+    ↓
 recursion(10)
-     ↓
-Base condition → return
+    ↓
+count == 10 → return
+```
 
-🔑 Key Concepts
+### Output
 
-Recursion — A method calling itself.
-
-Base Condition — count == 10 stops the recursive calls.
-
-Recursive Call — recursion(count) calls the method again.
-
-Increment — count++ moves to the next number.
-
-Starting Point — recursion(1) starts the sequence from 1.
-
-📤 Output
+```text
 1
 2
 3
@@ -92,22 +169,24 @@ Starting Point — recursion(1) starts the sequence from 1.
 7
 8
 9
+```
 
-⏱️ Complexity
+---
 
-Time Complexity: O(n) — The method is called once for each number.
+## 🔑 Remember
 
-Space Complexity: O(n) — Each recursive call remains on the call stack until the base condition is reached.
+### Execution Pattern
 
-🎯 Key Takeaway
+```text
+Check → Print → Increment → Recursive Call
+```
 
-This example demonstrates the basic structure of a recursive function:
+### Base Condition
 
-Base Condition
-      +
-Recursive Call
-      +
-Progress Toward Base Condition
+```java
+count == 10
+```
 
+### Quick Recall
 
-Every recursive solution should have a base condition to stop the recursion and a recursive call that moves the problem toward that condition.
+> Start with `1`, print it, increment `count`, and call the same function again. When `count` reaches `10`, `return` stops the recursion.
